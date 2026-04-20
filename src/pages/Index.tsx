@@ -64,6 +64,7 @@ const Index = () => {
           </div>
           <nav className="hidden md:flex gap-10 text-sm font-medium">
             <a href="#features" className="text-muted-foreground hover:text-white transition-colors">Возможности</a>
+            <a href="#education" className="text-muted-foreground hover:text-white transition-colors">Обучение</a>
             <a href="#pricing" className="text-muted-foreground hover:text-white transition-colors">Тарифы</a>
             <a href="#dealers" className="text-muted-foreground hover:text-white transition-colors">Дилерам</a>
           </nav>
@@ -339,6 +340,144 @@ const Index = () => {
                     {item.a}
                   </div>
                 )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section id="education" className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className={`text-center mb-20 ${anim("objections")}`}>
+            <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">Обучение</span>
+            <h2 className="text-5xl lg:text-6xl font-display font-black tracking-tighter mt-4 mb-6">
+              <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
+                Решили заняться реставрацией?
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+              Проводим обучение офлайн и онлайн. Работаем только с теми, у кого есть начальные знания — подтягиваем и укрепляем их.
+            </p>
+          </div>
+
+          {/* Курсы по направлениям */}
+          <div className={`mb-16 ${anim("objections")}`}>
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">Стоимость обучения по направлениям</h3>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {[
+                { title: "Реставрация рулей", price: "25 000 ₽", offline: "1 день офлайн", online: "6 часов онлайн" },
+                { title: "Реставрация рулей и автомобильной кожи", price: "110 000 ₽", offline: "5 дней офлайн (25 ч)", online: "20 часов онлайн" },
+                { title: "Реставрация мебельной кожи", price: "105 000 ₽", offline: "4 дня офлайн", online: "25 часов онлайн" },
+                { title: "Реставрация галантерейной и одежной кожи", price: "115 000 ₽", offline: "5 дней офлайн", online: "30 часов онлайн" },
+              ].map((course, i) => (
+                <div key={i} className="p-6 border border-accent/10 hover:border-accent/30 rounded-2xl bg-card/50 hover:bg-card/80 transition-all flex justify-between items-start gap-4">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-white mb-2">{course.title}</h4>
+                    <div className="flex gap-4 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <Icon name="MapPin" size={14} className="text-accent" fallback="Circle" />
+                        {course.offline}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Icon name="Monitor" size={14} className="text-accent" fallback="Circle" />
+                        {course.online}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-xl font-black text-accent flex-shrink-0">{course.price}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Полный пакет */}
+            <div className="relative p-8 border border-accent/40 rounded-2xl bg-accent/10">
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent via-accent to-accent/60 rounded-3xl opacity-10 blur-xl" />
+              <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div>
+                  <div className="inline-block text-xs font-semibold bg-accent text-black px-3 py-1 rounded-full mb-3">Полный пакет</div>
+                  <h4 className="text-2xl font-bold text-white mb-2">Все 4 направления</h4>
+                  <p className="text-muted-foreground">8 рабочих дней офлайн или 50 часов онлайн</p>
+                  <p className="text-sm text-accent mt-2">Знание колеровки обязательно!</p>
+                </div>
+                <div className="text-4xl font-black text-accent flex-shrink-0">300 000 ₽</div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 варианта обучения */}
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">Форматы обучения</h3>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                num: "01",
+                title: "Вариант 1 — Тематический",
+                icon: "BookOpen",
+                items: [
+                  "Выбираете направление: руль, авто, мебель или галантерея",
+                  "Теория, практика, ответы на вопросы",
+                  "Знакомство с химией MAGIADECORIO",
+                  "Решение практических вопросов",
+                  "Онлайн обучение, видеоуроки",
+                ],
+              },
+              {
+                num: "02",
+                title: "Вариант 2 — Дистанционный",
+                icon: "Monitor",
+                items: [
+                  "Знакомство и тест по навыкам",
+                  "Настройка вашего помещения удалённо",
+                  "Подбор инструмента и материалов",
+                  "3–5 дней подготовки перед стартом",
+                  "Видеосвязь до 1 часа в день (6–50 ч обучения)",
+                  "Техподдержка ещё 3–5 дней после курса",
+                ],
+              },
+              {
+                num: "03",
+                title: "Вариант 3 — Офлайн у нас",
+                icon: "MapPin",
+                items: [
+                  "Приезжаете к нам на 1–8 дней",
+                  "Практика в нашем центре реставрации",
+                  "Знакомство с химией вживую",
+                  "Сертификат от компании MAGIADECORIO",
+                  "Техподдержка неделю после обучения",
+                  "Возможность сотрудничества с нами",
+                ],
+              },
+            ].map((v, i) => (
+              <div key={i} className="p-8 border border-accent/10 hover:border-accent/40 rounded-2xl bg-card/50 hover:bg-card/80 transition-all flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="text-4xl font-black text-accent">{v.num}</div>
+                  <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
+                    <Icon name={v.icon} size={20} className="text-accent" fallback="Star" />
+                  </div>
+                </div>
+                <h4 className="font-bold text-lg text-white">{v.title}</h4>
+                <ul className="space-y-2 flex-1">
+                  {v.items.map((item, j) => (
+                    <li key={j} className="flex gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Итоговые условия */}
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              { icon: "Award", text: "Сертификат от MAGIADECORIO после офлайн-обучения" },
+              { icon: "Briefcase", text: "Возможность работать в нашей компании или сотрудничать" },
+              { icon: "AlertCircle", text: "Проживание и питание в стоимость курсов не входят" },
+            ].map((note, i) => (
+              <div key={i} className="flex gap-3 p-5 border border-accent/10 rounded-2xl bg-card/30">
+                <Icon name={note.icon} size={20} className="text-accent flex-shrink-0 mt-0.5" fallback="Info" />
+                <span className="text-sm text-muted-foreground">{note.text}</span>
               </div>
             ))}
           </div>
